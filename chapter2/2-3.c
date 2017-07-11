@@ -19,8 +19,10 @@ int readline(char line[]) {
 	while ((c = getchar()) != EOF && c != '\n' && len < SIZE - 1) {
 		line[len++] = c;
 	}
-	line[len] = '\0';
-
+	if (c == EOF && c == '\n') {
+		line[len] = '\0';
+	}
+	
 	return len;
 }
 
