@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/luxiaoxiao/Documents/ClangProjects/c-programming-language-exercise/data-structure/stack/list.c
+stdio.h
+-
+string.h
+-
+list.h
+/Users/luxiaoxiao/Documents/ClangProjects/c-programming-language-exercise/data-structure/stack/list.h
+
+/Users/luxiaoxiao/Documents/ClangProjects/c-programming-language-exercise/data-structure/stack/list.h
+stdlib.h
+-
+
+/Users/luxiaoxiao/Documents/ClangProjects/c-programming-language-exercise/data-structure/stack/main.c
+stdlib.h
+-
+stdio.h
+-
+stack.h
+/Users/luxiaoxiao/Documents/ClangProjects/c-programming-language-exercise/data-structure/stack/stack.h
+
+/Users/luxiaoxiao/Documents/ClangProjects/c-programming-language-exercise/data-structure/stack/stack.c
+stdlib.h
+-
+list.h
+/Users/luxiaoxiao/Documents/ClangProjects/c-programming-language-exercise/data-structure/stack/list.h
+stack.h
+/Users/luxiaoxiao/Documents/ClangProjects/c-programming-language-exercise/data-structure/stack/stack.h
+
+/Users/luxiaoxiao/Documents/ClangProjects/c-programming-language-exercise/data-structure/stack/stack.h
+stdlib.h
+-
+list.h
+/Users/luxiaoxiao/Documents/ClangProjects/c-programming-language-exercise/data-structure/stack/list.h
+
