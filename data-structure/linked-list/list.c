@@ -24,19 +24,18 @@ void list_destroy(List *list) {
 			list->destroy(data);
 		}
 	}
-}
-
-/* No operations are allocated now, but clear the structure as sa precaution. */
-memset(list, 0, sizeof(list)) {
+	/* No operations are allocated now, but clear the structure as sa precaution. */
+	memset(list, 0, sizeof(list));
 	return ;
 }
+
 
 /* list_ins_next */
 int list_ins_next(List *list, ListElmt *element, const void *data) {
 	ListElmt *new_element;
 
 	/* allocate memory to the list. */
-	if (new_element = (* ListElmt)malloc(sizeof(ListElmt)) == NULL) {
+	if ((new_element = (ListElmt *)malloc(sizeof(ListElmt))) == NULL) {
 		return -1;
 	}
 
