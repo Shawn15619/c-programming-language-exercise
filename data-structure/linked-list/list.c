@@ -18,14 +18,14 @@ void list_init(List *list, void (*destroy)(void *data)) {
 void list_destroy(List *list) {
 	void *data;
 	/* remove each element */
-	while (list->size > 0) {
-		if (list_rem_next(list, NULL, (void **) data) == 0 && list->destroy != NULL) {
+	while (list_size(list) > 0) {
+		if (list_rem_next(list, NULL, (void **)&data) == 0 && list->destroy != NULL) {
 			/* call a user defined data to free dynamically allocated data. */
 			list->destroy(data);
 		}
 	}
 	/* No operations are allocated now, but clear the structure as sa precaution. */
-	memset(list, 0, sizeof(list));
+	memset(list, 0, sizeof(List));
 	return ;
 }
 
@@ -47,18 +47,17 @@ int list_ins_next(List *list, ListElmt *element, const void *data) {
 			list->tail = new_element;
 			new_element->next = list->head;
 			list->head = new_element;
-		} else {
-			/* handle the insertion somewhere other than at the head */
-			if (element->next == NULL) {
-				list->tail = new_element;
-			}
-			new_element->next = element->next;
-			element->next = new_element;
 		}
-
-		list->size++;
-		return 0;
-	}
+	} else {
+        /* handle the insertion somewhere other than at the head */
+        if (element->next == NULL) {
+            list->tail = new_element;
+        }
+        new_element->next = element->next;
+        element->next = new_element;
+    }
+    list->size++;
+    return 0;
 }
 
 /* list_rem_next */
@@ -66,7 +65,7 @@ int list_rem_next(List *list, ListElmt *element, void **data) {
 	ListElmt *old_element;
 
 	/* do not allow removal of an empty list */
-	if (list_size(list) == -1) {
+	if (list_size(list) == 0) {
 		return -1;
 	}
 
