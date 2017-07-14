@@ -45,9 +45,9 @@ int list_ins_next(List *list, ListElmt *element, const void *data) {
 		/* handle the insertion of head of the list */
 		if (list_size(list) == 0) {
 			list->tail = new_element;
-			new_element->next = list->head;
-			list->head = new_element;
-		}
+        }
+        new_element->next = list->head;
+        list->head = new_element;
 	} else {
         /* handle the insertion somewhere other than at the head */
         if (element->next == NULL) {
